@@ -1,0 +1,59 @@
+{
+    "Routes": [
+        {
+            "DownstreamScheme": "https",
+            "DownstreamPathTemplate": "/api/users",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host":"localhost",
+                    "Port":7001
+                }
+            ], 
+            "UpstreamHttpMethod": ["GET","POST","PUT","DELETE"], 
+            "UpstreamPathTemplate": "/api/users",
+            "DelegatingHandlers": [ "GatewayHeaderHandler" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            }
+        },
+        {
+            "DownstreamScheme": "https",
+            "DownstreamPathTemplate": "/api/weather",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host":"localhost",
+                    "Port":7002
+                }
+            ], 
+            "UpstreamHttpMethod": ["GET","POST","PUT","DELETE"], 
+            "UpstreamPathTemplate": "/api/weather",
+            "DelegatingHandlers": [ "GatewayHeaderHandler" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            }
+
+        },
+        {
+            "DownstreamScheme": "https",
+            "DownstreamPathTemplate": "/api/account/{everything}",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host":"localhost",
+                    "Port":7003
+                }
+            ], 
+            "UpstreamHttpMethod": ["GET","POST","PUT","DELETE"], 
+            "UpstreamPathTemplate": "/api/account/{everything}",
+            "DelegatingHandlers": [ "GatewayHeaderHandler" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            }
+        }
+    ],
+    "GlobalConfiguration": {
+        "BaseUrl": "https://localhost:7000"
+    }
+}
