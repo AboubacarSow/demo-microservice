@@ -22,7 +22,7 @@ public class JwtService(IConfiguration configuration)
 
     private JwtSecurityToken GenerateTokenOptions(SigningCredentials signingCredentials, List<Claim> claims)
     {
-        var jwtSettings = configuration.GetRequiredSection("JwtSettings");
+        var jwtSettings = configuration.GetRequiredSection("Authentication");
         return  new JwtSecurityToken(
             issuer:jwtSettings["ValidIssuer"],
             audience:jwtSettings["ValidAudience"],
@@ -46,8 +46,8 @@ public class JwtService(IConfiguration configuration)
 
     private SigningCredentials GetSignInCredentials()
     {
-        var jwtSettings= configuration.GetRequiredSection("JwtSettings");
-        var key = Encoding.UTF8.GetBytes(jwtSettings["secretKey"]!);
+        var jwtSettings= configuration.GetRequiredSection("Authentication");
+        var key = Encoding.UTF8.GetBytes(jwtSettings["Key"]!);
         var secretKey = new SymmetricSecurityKey(key);
         return new SigningCredentials(key:secretKey,algorithm:SecurityAlgorithms.HmacSha256);
     }

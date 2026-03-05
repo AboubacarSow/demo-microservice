@@ -11,7 +11,7 @@ namespace authentication.Controllers;
 public class AccountController : ControllerBase
 {
     private readonly static ConcurrentDictionary<string, User> Users = new();
-    [HttpPost]
+    [HttpPost("login")]
     public  IActionResult Login([FromServices] JwtService jwtService, [FromBody] LoginDto login)
     {
         var email = Users.Keys.FirstOrDefault(k => k == login.Email);
@@ -27,6 +27,7 @@ public class AccountController : ControllerBase
         var token =  jwtService.CreateToken(user);
         return Ok(token);
     }
+    [HttpPost("register")]
     public IActionResult Register([FromBody] RegisterDto registerDto )
     {
         var email = Users.Keys.FirstOrDefault(k => k == registerDto.Email);
