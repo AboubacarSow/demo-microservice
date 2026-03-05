@@ -42,7 +42,7 @@ demo-microservice/
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/demo-microservice.git
+git clone https://github.com/AboubacarSow/demo-microservice.git
 cd demo-microservice
 ```
 
@@ -74,7 +74,7 @@ dotnet run --urls https://localhost:7003
 | **Authentication** | `/api/account/register`   | POST   | Register a new user                 |
 | **Authentication** | `/api/account/login`      | POST   | Authenticate a user                 |
 | **Identity**       | `/api/users`      | GET    | Get all users              |
-| **Weather**        | `/api/weathe` | GET    | Get weather data            |
+| **Weather**        | `/api/weather` | GET    | Get weather data            |
 | **Gateway**        | `/api/account/register`   | POST   | Forwarded to authentication service |
 | **Gateway**        | `/api/weather` | GET    | Forwarded to weather service        |
 
