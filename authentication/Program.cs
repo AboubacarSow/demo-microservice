@@ -20,6 +20,7 @@ builder.Services.AddAuthentication(options =>
             options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
         }).AddJwtBearer("Bearer",options =>
         {
+            
             options.SaveToken = true;
             options.RequireHttpsMetadata = false;
             options.TokenValidationParameters = new TokenValidationParameters()

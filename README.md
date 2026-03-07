@@ -62,9 +62,8 @@ cd ../weather
 dotnet run --urls https://localhost:7003
 ```
 
-3. Access APIs via the gateway or directly via each service endpoint.
-
-4. (Optional) Use Docker Compose to run all services together if configured.
+3. Access APIs via the gateway . Trying to access services directly via their endpoints is not going to work.
+Because services do not allow any request besides ones coming from the gateway.
 
 
 ## Sample API Endpoints
